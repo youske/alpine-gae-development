@@ -1,0 +1,68 @@
+version: "2"
+services:
+
+  python:
+    build: python
+#    environments:
+#      LANG: ja_JP.UTF-8
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+    ports:
+      - "8888:8888"
+    volumes:
+      - notebook:/home/admin
+
+  go:
+      build: go
+      ports:
+        - "8888:8888"
+      volumes:
+        - notebook:/home/admin
+
+#  nodejs:
+#      build: nodejs
+#      ulimits:
+#        nproc: 65535
+#        nofile:
+#          soft: 20000
+#          hard: 40000
+#      ports:
+#        - "8888:8888"
+#      volumes:
+#        - notebook:/jupyter_notebook
+
+  php:
+      build: go
+      ports:
+        - "8888:8888"
+      volumes:
+        - notebook:/jupyter_notebook
+
+  java:
+     build: java
+#      ports:
+#        - "8888:8888"
+#      volumes:
+#        - notebook:/jupyter_notebook
+
+#  ruby:
+#      build: ruby
+#      ports:
+#        - "8888:8888"
+#      volumes:
+#        - notebook:/jupyter_notebook
+
+
+#  phosphide:
+#      build: phosphide
+#      ports:
+#        - "8888:8888"
+#      volumes:
+#        - notebook:/jupyter_notebook
+
+volumes:
+  notebook:
+    driver: local

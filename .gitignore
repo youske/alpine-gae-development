@@ -1,0 +1,17 @@
+#
+node_modules/
+vendor/
+tests/
+
+#
+.sync-config.cson
+.remote-sync.json
+
+#
+.tags
+*.swp
+*.lck
+*.*~
+*~
+
+!.gitkeep
